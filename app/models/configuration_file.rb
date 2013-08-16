@@ -48,8 +48,8 @@ class ConfigurationFile < ActiveRecord::Base
     new_file.close # Close file to allow deletion
     # Upload to Amazon S3
     s3 = AWS::S3.new(
-      access_key_id:     'AKIAIXM2DMH4M2PAT5TA',
-      secret_access_key: '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'
+      access_key_id:     ENV['AMAZON_AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AMAZON_AWS_SECRET_ACCESS_KEY']
     )
     bucket = s3.buckets['configparser']
     object = bucket.objects["#{self.name}"]
