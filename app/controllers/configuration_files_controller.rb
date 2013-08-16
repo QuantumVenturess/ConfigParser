@@ -40,7 +40,7 @@ class ConfigurationFilesController < ApplicationController
 
   def show
     # Show all parameters for a single configuration file
-    @config_file = ConfigurationFile.find_by_name!(params[:id])
+    @config_file = ConfigurationFile.find_by_slug!(params[:id])
     @parameters  = @config_file.parameters
     @title       = @config_file.name
   rescue ActiveRecord::RecordNotFound
