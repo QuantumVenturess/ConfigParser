@@ -14,7 +14,7 @@ class ConfigurationFilesController < ApplicationController
   end
 
   def download
-    config_file = ConfigurationFile.find_by_name!(params[:id])
+    config_file = ConfigurationFile.find_by_slug!(params[:id])
     url         = URI.parse(config_file.amazon_aws_url)
     result      = Net::HTTP.get(url)
     if !result[/<Code>AccessDenied<\/Code>/]
@@ -29,7 +29,7 @@ class ConfigurationFilesController < ApplicationController
     end
   rescue ActiveRecord::RecordNotFound
     flash[:error] = 'Configuration file does not exist'
-    redirect_to config_file
+    redirect_to root_path
   end
 
   def search
