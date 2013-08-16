@@ -1,0 +1,15 @@
+<div class='header'>
+  <%= link_to root_path, class: 'logoLink' do %>
+    <div>
+      <%= image_tag 'header_logo.png' %>
+    </div>
+    <h1>Configuration Parser</h1>
+  <% end %>
+  <nav>
+    <%= form_tag :upload_path, multipart: true do %>
+      <%= file_field_tag 'upload' %>
+      <%= button_tag 'Upload' %>
+    <% end %>
+  </nav>
+  <%= yield :header %>
+</div>

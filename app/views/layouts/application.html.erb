@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Configparser</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= favicon_link_tag 'logo.png' %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class='wrapper'>
+  <header><%= render 'layouts/header' %></header>
+  <div class='content'>
+    <div class='flashMessage'>
+      <% flash.each do |key, value| %>
+        <div class='flash <%= key %>'>
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </div>
+</div>
+<footer><%= render 'layouts/footer' %></footer>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<%= content_for :head do %>
+<script>
+$(document).ready(function() {
+  $('.search input').focus();
+  $.ajax({
+    dataType: 'script',
+    type    : 'GET',
+    url     : '<%= url_for(delete_files_path) %>'
+  });
+});
+</script>
+<% end %>
+<div class='search'>
+  <%= text_field_tag 'q', '', autocomplete: :off, 
+    placeholder: 'Search a parameter by its name', 
+    'data-source' => url_for(:parameter_list_path) %>
+  <%= link_to image_tag('cancel.png'), '#', class: 'cancel', title: 'Clear' %>
+</div>
+<%= render 'shared/results' %>

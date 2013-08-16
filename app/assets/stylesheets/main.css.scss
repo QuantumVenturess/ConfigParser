@@ -1,0 +1,47 @@
+@mixin browser($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+html, body {
+  height: 100%;
+}
+body {
+  background: rgb(0, 0, 0);
+  color:  rgb(255, 255, 255);
+  font-family: 'Varela', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  .wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    .content  {
+      margin: 0 auto;
+      max-width: 960px;
+      width: 100%;
+    }
+  }
+}
+a {
+  color: rgb(135, 224, 253);
+  text-decoration: none;
+  @include browser(transition, '.1s all linear');
+  &:hover {
+    color: rgb(5, 171, 224);
+  }
+}
+p {
+  margin: 0;
+}
+/* Font face */
+@font-face {
+  font-family: 'Hattori Hanzo';
+  src: url('/assets/Hattori_Hanzo-webfont.eot'),
+       url('/assets/Hattori_Hanzo-webfont.ttf');
+}
+@font-face {
+  font-family: 'Varela';
+  src: url('/assets/Varela-Regular-webfont.eot'),
+       url('/assets/Varela-Regular-webfont.ttf');
+}

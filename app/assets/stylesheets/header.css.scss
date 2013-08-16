@@ -1,0 +1,64 @@
+@mixin browser($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+header {
+  height: 70px;
+  width: 100%;
+  .header {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 960px;
+    width: 100%;
+    .logoLink {
+      color: rgb(255, 255, 255);
+      display: block;
+      float: left;
+      height: 100%;
+      div {
+        float: left;
+        height: 100%;
+        width: 30px;
+        margin: 20px 0 0 0;
+        img {
+          max-width: 30px;
+        }
+      }
+      h1 {
+        float: left;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 70px;
+        margin: 0 0 0 20px;
+      }
+    }
+    nav {
+      float: right;
+      height: 100%;
+      input, button {
+        height: 40px;
+        margin: 15px 0 0 0;
+      }
+      input {
+        float: left;
+      }
+      button {
+        float: right;
+      }
+    }
+    .downloadFile {
+      background: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      display: block;
+      float: right;
+      line-height: 22px;
+      margin: 15px 0 0 0;
+      padding: 9px 20px;
+      &:hover {
+        background: rgb(5, 171, 224);
+      }
+    }
+  }
+}

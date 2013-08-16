@@ -1,0 +1,12 @@
+<div class='parameter'>
+  <nav>
+    <div><%= parameter.name %></div>
+    <div><%= parameter.value %></div>
+    <div><%= parameter.type %></div>
+    <div>
+      <%= link_to parameter.configuration_file do %>
+        <%= parameter.configuration_file.name %>
+      <% end %>
+    </div>
+  </nav>
+</div>

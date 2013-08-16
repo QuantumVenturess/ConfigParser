@@ -1,0 +1,26 @@
+<%= content_for :head do %>
+<script>
+$(document).ready(function() {
+  $('header nav').hide();
+});
+</script>
+<% end %>
+<% content_for :header do %>
+  <%= link_to 'Download File', download_configuration_file_path(@config_file),
+    class: 'downloadFile' %>
+<% end %>
+<div class='configFileDetail'>
+  <span>
+    <%= pluralize(@parameters.size, 'Parameter') %>
+  </span>
+  <h1><%= @config_file.name %></h1>
+</div>
+<div class='results'>
+  <nav>
+    <div>Name</div>
+    <div>Value</div>
+    <div>Type</div>
+    <div>Configuration File</div>
+  </nav>
+  <%= render @parameters %>
+</div>

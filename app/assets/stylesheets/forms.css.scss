@@ -1,0 +1,35 @@
+@mixin browser($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+input, textarea {
+  -webkit-appearance: none;
+  border: 1px solid rgb(255, 255, 255);
+  @include browser(border-radius, 0);
+  @include browser(box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+  @include browser(box-sizing, border-box);
+  font-family: 'Varela', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  margin: 0;
+  outline: none;
+  padding: 10px;
+  &:focus {
+    outline: none;
+  }
+}
+button {
+  @include browser(box-sizing, border-box);
+  background: rgb(255, 255, 255);
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  line-height: 21px;
+  margin: 0;
+  padding: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
