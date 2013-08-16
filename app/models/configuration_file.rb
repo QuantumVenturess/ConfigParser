@@ -7,6 +7,11 @@ class ConfigurationFile < ActiveRecord::Base
 
   before_save :slugify
 
+  def absolute_file_path
+    directory_name = "#{Rails.root}/public/files"
+    File.join(directory_name, self.name)
+  end
+
   def amazon_aws_url
     "http://s3.amazonaws.com/configparser/#{self.name}"
   end
@@ -23,7 +28,7 @@ class ConfigurationFile < ActiveRecord::Base
   end
 
   def save_parameters_from_file file
-    path = File.join('public/files', self.name)
+    path = self.absolute_file_path
     # Save file to web server
     File.open(path, 'wb') do |f|
       f.write(file.read)

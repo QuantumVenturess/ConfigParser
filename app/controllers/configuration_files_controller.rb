@@ -18,7 +18,7 @@ class ConfigurationFilesController < ApplicationController
     url         = URI.parse(config_file.amazon_aws_url)
     result      = Net::HTTP.get(url)
     if !result[/<Code>AccessDenied<\/Code>/]
-      path = File.join('public/files', config_file.name)
+      path = config_file.absolute_file_path
       File.open(path, 'wb') do |f|
         f.write(result)
       end
