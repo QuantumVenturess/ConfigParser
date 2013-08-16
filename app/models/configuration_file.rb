@@ -30,7 +30,7 @@ class ConfigurationFile < ActiveRecord::Base
   def save_parameters_from_file file
     path = self.absolute_file_path
     # Save file to web server
-    new_file = File.open(path, 'wb')
+    new_file = File.new(path, 'wb')
     new_file.write(file.read)
     new_file.close
     new_file = File.open(path, 'r')
